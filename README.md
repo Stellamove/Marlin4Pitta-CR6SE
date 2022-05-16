@@ -1,6 +1,6 @@
 # Marlin4Pitta-CR6SE Firmware For CR-6 SE with Pitta
 
-![GitHub](https://img.shields.io/github/license/Stellamove/Marlin4Pitta-CR6SE)
+![GitHub](https://img.shields.io/github/license/Stellamove/Marlin4Pitta-CR6SE?style=flat-square)
 
 Marlin4Pitta-CR6SE is an optimized firmware for CR-6 SE with Pitta.
 
