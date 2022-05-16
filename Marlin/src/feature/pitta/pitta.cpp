@@ -1916,7 +1916,7 @@ void PITTA::pitta_loop()
         {
           // tool change
           int filament = cmd - PITTA_CMD_T0; // filament index[0..7]
-          SERIAL_ECHOLNPAIR("PITTA T", filament);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("PITTA T", filament);
           b_master_state_change_request = true;
           b_master_hear = false;
           b_master_say = true;
@@ -1927,7 +1927,7 @@ void PITTA::pitta_loop()
         {
           // load filament
           int filament = cmd - PITTA_CMD_L0;
-          SERIAL_ECHOLNPAIR("PITTA L", filament);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("PITTA L", filament);
           pitta_state = 6; // wait response
         }
         else if (cmd == PITTA_CMD_C)
@@ -2284,7 +2284,7 @@ void PITTA::pitta_state_proceed() {
         {
           // tool change
           int filament = cmd - PITTA_CMD_T0; // filament index[0..7]
-          SERIAL_ECHOLNPAIR("PITTA T", filament);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("PITTA T", filament);
           b_master_state_change_request = true;
           b_master_hear = false;
           b_master_say = true;
@@ -2295,7 +2295,7 @@ void PITTA::pitta_state_proceed() {
         {
           // load filament
           int filament = cmd - PITTA_CMD_L0;
-          SERIAL_ECHOLNPAIR("PITTA L", filament);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("PITTA L", filament);
           pitta_state = 6; // wait response
         }
         else if (cmd == PITTA_CMD_C)
@@ -2389,7 +2389,7 @@ void PITTA::fila_change(const uint8_t index)
         add_data_to_buffer(((index<<8)|DATA_W_NO_CMD));
       }
       nozzle_turn++;
-      SERIAL_ECHOLNPAIR("queuing: ", index);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("queuing: ", index);
       extruder = index; // filament change is finished
       // SERIAL_ECHOLNPGM("extruder: ", extruder);
       active_extruder = 0;
@@ -2399,10 +2399,10 @@ void PITTA::fila_change(const uint8_t index)
       pitta_ui_update();
       if (temp_temp_extruder < 0)
       {
-        SERIAL_ECHOLNPAIR("cold temp_temp_extruder: ", temp_temp_extruder);  // SERIAL_ECHOLNPGM
+        SERIAL_ECHOLNPAIR("cold temp_temp_extruder: ", temp_temp_extruder);
         temp_temp_extruder = 0;
       }
-      SERIAL_ECHOLNPAIR("temp_temp_extruder: ", temp_temp_extruder);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("temp_temp_extruder: ", temp_temp_extruder);
       pitta_set_temp((temp_temp_extruder - 0), 0);
 
 
@@ -2669,7 +2669,7 @@ void PITTA::on_receiving() {
               chk_high8 = chk_high8 + (((0xffffff & receive_byte)>>i)&0x1)*(i+0)*2;
           }
           chk_high8 = chk_high8 & 0xff;
-          SERIAL_ECHOLNPAIR("rcv chk: ", (unsigned)received_chk8);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("rcv chk: ", (unsigned)received_chk8);
 
           if (chk_high8 == received_chk8&&received_packet!=0) {
               b_byte_receive_done = true;
@@ -2721,7 +2721,7 @@ void PITTA::parsing() {
   {
     if (received_cmd == RESEND_REQ) {
       send_packet = 0xffffffff & resend_var;
-      SERIAL_ECHOLNPAIR("RETRY: ", send_packet);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("RETRY: ", send_packet);
       long chk_high8 = 0;
       for (int i = 0;i<24; i++) {
           chk_high8 = chk_high8 + (((0xffffff & send_packet)>>i)&0x1)*(i+0)*2;
@@ -2913,10 +2913,10 @@ void PITTA::physical_processing() {
       extern int16_t temp_temp_extruder, temp_temp_bed;
       temp_temp_extruder = pitta_get_temp(0);
       pitta_set_temp(140, 0);
-      SERIAL_ECHOLNPAIR("safety hotend temp: ", 140);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("safety hotend temp: ", 140);
       temp_temp_bed = pitta_get_temp_bed();
       pitta_set_temp_bed(40);
-      SERIAL_ECHOLNPAIR("safety bed temp: ", 40);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("safety bed temp: ", 40);
       diplay_update_cnt = 990;
       // SET_INPUT_PULLUP(ONE_W_CMD_PIN);
       SET_INPUT_PULLDOWN(ONE_W_CMD_PIN);
@@ -3034,9 +3034,9 @@ void PITTA::physical_processing() {
           b_pitta_jammed = false;
           b_jam_recovered = true;
           pitta_set_temp(temp_temp_extruder, 0);
-          SERIAL_ECHOLNPAIR("restore extruder temp: ", temp_temp_extruder);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("restore extruder temp: ", temp_temp_extruder);
           pitta_set_temp_bed((temp_temp_bed));
-          SERIAL_ECHOLNPAIR("restore bed temp: ", temp_temp_bed);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("restore bed temp: ", temp_temp_bed);
           SERIAL_ECHOLNPGM("jam resolved"); 
           // material_offset = (long)tb_len*EXT_CM_M/* pitta_extrude_offset */;
           // material_tune_offset = (long)resrv1*EXT_MM_M;
@@ -3256,8 +3256,8 @@ void PITTA::physical_processing() {
           // SET_INPUT_PULLUP(ONE_W_CMD_PIN);
           SET_INPUT_PULLDOWN(ONE_W_CMD_PIN);
           pitta_sel_req = false;
-          SERIAL_ECHOLNPAIR("extrude ready: ", mot_ext_remain_step);  // SERIAL_ECHOLNPGM
-          SERIAL_ECHOLNPAIR("expire_retry_cnt : ", expire_resend_cnt);  // SERIAL_ECHOLNPGM
+          SERIAL_ECHOLNPAIR("extrude ready: ", mot_ext_remain_step);
+          SERIAL_ECHOLNPAIR("expire_retry_cnt : ", expire_resend_cnt);
           b_jam_recovered = false;
           i_ABS_MOT_TRIGGER_CNT_DUTY = 2000;//1500
 
@@ -3326,14 +3326,14 @@ void PITTA::data_prepair() {
       temp_var = COM_CONTINUE;
       b_rcv_confirm_need = true;
       resend_var = temp_var;
-      SERIAL_ECHOLNPAIR("PROC_CONTINUE: ", temp_var);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("PROC_CONTINUE: ", temp_var);
     }
     else {
       temp_var = get_data_from_buffer();
       temp_var = temp_var&0xffffff;
       b_rcv_confirm_need = true;
       resend_var = temp_var;
-      SERIAL_ECHOLNPAIR("NORM DATA SEND: ", temp_var);  // SERIAL_ECHOLNPGM
+      SERIAL_ECHOLNPAIR("NORM DATA SEND: ", temp_var);
     }
   }
   else
@@ -3349,10 +3349,10 @@ void PITTA::data_prepair() {
     }
     temp_var = resend_var;
     resend_var = temp_var;
-    SERIAL_ECHOLNPAIR("SEND FAIL, RETRY: ", temp_var);  // SERIAL_ECHOLNPGM
+    SERIAL_ECHOLNPAIR("SEND FAIL, RETRY: ", temp_var);
     b_resend_req = false;
   }
-  SERIAL_ECHOLNPAIR("pitta.data: ", temp_var);  // SERIAL_ECHOLNPGM
+  SERIAL_ECHOLNPAIR("pitta.data: ", temp_var);
   send_packet = 0xffffff & temp_var;
   long chk_high8 = 0;
   for (int i = 0;i<24; i++) {
@@ -3401,7 +3401,7 @@ void PITTA::sending() {
         send_bit_shift = 0;
         b_wire_sent_byte = true;
         WRITE(ONE_W_CMD_PIN, LOW);
-        SERIAL_ECHOLNPAIR("M Snd: ", 0x00ff & send_packet);  // SERIAL_ECHOLNPGM
+        SERIAL_ECHOLNPAIR("M Snd: ", 0x00ff & send_packet);
         b_update_M_send_data = false;
         sent_packet = send_packet;
         b_pitta_loop_lock = false;
