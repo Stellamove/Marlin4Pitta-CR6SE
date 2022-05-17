@@ -42,4 +42,5 @@ CR-6 SE require the firmware.bin file to be copied onto the onboard SD card, and
 7. If you are uploading from the original firmware or other source, please restore defaults from LCD menu.
 
 ## Upload firmware to touch screen of CR-6 SE
-If you have uploaded the firmware of CR-6 SE, you must also upload the display firmware of the touch screen for CR-6 SE.
+If you have uploaded the firmware of CR-6 SE, you must also upload the display firmware of the touch screen for CR-6 SE. You will find the instruction to upload and upload the DWIN_SET form [LCD_Files](https://github.com/Stellamove/LCD_Files/tree/master/CR-6%20SE).
+
