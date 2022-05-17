@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/Stellamove/Marlin4Pitta-CR6SE?style=flat-square)
 
-Marlin4Pitta-CR6SE is an optimized firmware for CR-6 SE with Pitta.
+Marlin4Pitta-CR6SE is an optimized firmware for CR-6 SE with Pitta. Marlin4Pitta-CR6SE has been modified based on the source of the CR6Community version.
 
 ## Installing Marlin4Pitta-CR6SE
 To install Marlin4Pitta-CR6SE on CR-6 SE you’ll first need to Download Marlin4Pitta-CR6SE, then use an IDE to Compile the Marlin4Pitta-CR6SE into a binary form and Upload it to your board. Download Marlin4Pitta-CR6SE source code on the [Github page](https://github.com/Stellamove/Marlin4Pitta-CR6SE)
@@ -41,5 +41,5 @@ CR-6 SE require the firmware.bin file to be copied onto the onboard SD card, and
 6. The LCD will be blank until the upload is finished (about 15 seconds).
 7. If you are uploading from the original firmware or other source, please restore defaults from LCD menu.
 
-## Upload firmware to LCD of CR-6 SE
-If you have uploaded the firmware of CR-6 SE, you must also upload the display firmware of the touch screen for CR-6 SE. You will find the instruction to upload and upload the DWIN_SET form [Configurations](https://github.com/Stellamove/Configurations/tree/master/config/examples/Creality/CR-6%20SE).
+## Upload firmware to touch screen of CR-6 SE
+If you have uploaded the firmware of CR-6 SE, you must also upload the display firmware of the touch screen for CR-6 SE.
