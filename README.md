@@ -36,9 +36,9 @@ CR-6 SE require the firmware.bin file to be copied onto the onboard SD card, and
 1. Prepare SD card formated with MBR, FAT32 and 4096 allocation size.
 2. Copy the firmware binary file to the root of the card.
 3. Ensure that the name of the file was not previously used to update the 3D printer.
-4. Turn off the 3D printer, disconnect any USB cable and insert the SD card.
-5. Turn on the 3D printer, the upload firmware process will start automatically.
-6. The LCD will be blank until the upload is finished (about 15 seconds).
+4. Turn off the CR-6 SE, disconnect any USB cable and insert the SD card.
+5. Turn on the CR-6 SE, the upload firmware process will start automatically.
+6. Wait for the upload to complete.
 7. If you are uploading from the original firmware or other source, please restore defaults from LCD menu.
 
 ## Upload firmware to touch screen of CR-6 SE
