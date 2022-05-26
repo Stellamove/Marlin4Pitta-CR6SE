@@ -99,10 +99,11 @@
   #include "../feature/backlash.h"
 #endif
 
+// PITTA
 #if HAS_FILAMENT_SENSOR
   #include "../feature/runout.h"
   #ifndef FIL_RUNOUT_ENABLED_DEFAULT
-    #define FIL_RUNOUT_ENABLED_DEFAULT true
+    #define FIL_RUNOUT_ENABLED_DEFAULT false
   #endif
 #endif
 
