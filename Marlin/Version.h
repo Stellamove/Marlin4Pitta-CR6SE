@@ -29,14 +29,14 @@
  * Marlin release version identifier
  */
 // PITTA
-#define SHORT_BUILD_VERSION "PITTA-R6.1-V1.1.6"  // "CR6Comm-Rel6.1"
+#define SHORT_BUILD_VERSION "PITTA-R6.1-V1.1.7"  // "CR6Comm-Rel6.1"
 
 /**
  * Verbose version identifier which should contain a reference to the location
  * from where the binary was downloaded or the source code was compiled.
  */
 // PITTA
-#define DETAILED_BUILD_VERSION "CR-6 community with Pitta-R6.1-V1.1.6 (based on Marlin 2.0.8.1)"
+#define DETAILED_BUILD_VERSION "CR-6 community with Pitta-R6.1-V1.1.7 (based on Marlin 2.0.8.1)"
 
 /**
  * The STRING_DISTRIBUTION_DATE represents when the binary file was built,
